@@ -97,33 +97,33 @@ Para executar este projeto, é necessário:
 ```
 📦 projetoPDS/
 │
-├── 📄 README.md              # O mapa do projeto (instruções e tarefas)
 ├── ⚖️ LICENSE                # Licença (ex: MIT)
+├── 📄 README.md              # O mapa do projeto (instruções e tarefas)
 │
 ├── 📁 data/                  # Onde ficam os dados (CWRU)
-│   ├── 📁 raw/               # Arquivos .mat originais (NÃO ALTERAR)
-│   └── 📁 processed/         # Dados já limpos e recortados (cache)
+│   ├── 📁 processed/         # Dados já limpos e recortados (cache)
+│   └── 📁 raw/               # Arquivos .mat originais (NÃO ALTERAR)
 │
-├── 📁 src/                   # Código Fonte (Scripts MATLAB .m)
-│   ├── 🎮 main.m             # O "Chefão": Script que roda o projeto todo
-│   ├── ⚙️ config.m           # Variáveis globais (ex: fs = 12000)
-│   │
-│   ├── 📁 preprocessing/     # [Membro 1] Scripts de limpeza e leitura
-│   │   ├── load_data.m
-│   │   └── remove_noise.m
-│   │
-│   ├── 📁 spectral/          # [Membro 2] Scripts de FFT e PSD (Welch)
-│   │   ├── calc_fft.m
-│   │   └── calc_welch.m
-│   │
-│   └── 📁 diagnostics/       # [Membro 3] Scripts de análise e métricas
-│       ├── fault_markers.m
-│       └── plot_results.m
+├── 📁 docs/                  # Documentação
+│   ├── 📁 paper/             # Artigo formato IEEE (LaTeX)
+│   └── 📁 presentation/      # Slides da defesa
 │
 ├── 📁 results/               # Saída do código
 │   └── 📁 figures/           # Imagens .png/.fig prontas para o artigo
 │
-└── 📁 docs/                  # Documentação
-    ├── 📁 paper/             # Artigo formato IEEE (LaTeX)
-    └── 📁 presentation/      # Slides da defesa
+└── 📁 src/                   # Código Fonte (Scripts MATLAB .m)
+    ├── ⚙️ config.m           # Variáveis globais (ex: fs = 12000)
+    ├── 🎮 main.m             # O "Chefão": Script que roda o projeto todo
+    │
+    ├── 📁 diagnostics/       # [Membro 3] Scripts de análise e métricas
+    │   ├── fault_markers.m
+    │   └── plot_results.m
+    │
+    ├── 📁 preprocessing/     # [Membro 1] Scripts de limpeza e leitura
+    │   ├── load_data.m
+    │   └── remove_noise.m
+    │
+    └── 📁 spectral/          # [Membro 2] Scripts de FFT e PSD (Welch)
+        ├── calc_fft.m
+        └── calc_welch.m
 ```
