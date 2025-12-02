@@ -97,33 +97,45 @@ Para executar este projeto, é necessário:
 ```
 📦 projetoPDS/
 │
-├── ⚖️ LICENSE                # Licença (ex: MIT)
-├── 📄 README.md              # O mapa do projeto (instruções e tarefas)
+├── 📄 Projeto_Final_PDS_2025_2.pdf   # PDF do edital/instruções
+├── 📄 tiago.md
+├── 📄 README.md                      # Documentação principal
 │
-├── 📁 data/                  # Onde ficam os dados (CWRU)
-│   ├── 📁 processed/         # Dados já limpos e recortados (cache)
-│   └── 📁 raw/               # Arquivos .mat originais (NÃO ALTERAR)
+├── 📁 data/                          # Base de dados
+│   ├── 📁 processed/                 # (Vazio por enquanto) Cache de dados
+│   └── 📁 raw/                       # Arquivos originais do CWRU (Carga 0 HP)
+│       ├── 97.mat                    # Saudável (Baseline)
+│       ├── 105.mat                   # Pista Interna (Leve - 0.007")
+│       ├── 118.mat                   # Esfera (Leve - 0.007")
+│       ├── 130.mat                   # Pista Externa (Leve - 0.007")
+│       ├── 209.mat                   # Pista Interna (Grave - 0.021")
+│       ├── 222.mat                   # Esfera (Grave - 0.021")
+│       └── 234.mat                   # Pista Externa (Grave - 0.021")
 │
-├── 📁 docs/                  # Documentação
-│   ├── 📁 paper/             # Artigo formato IEEE (LaTeX)
-│   └── 📁 presentation/      # Slides da defesa
+├── 📁 docs/                          # Documentação Acadêmica
+│   ├── 📁 paper/                     # Arquivos LaTeX do artigo
+│   └── 📁 presentation/              # Slides para defesa
 │
-├── 📁 results/               # Saída do código
-│   └── 📁 figures/           # Imagens .png/.fig prontas para o artigo
+├── 📁 results/                       # Resultados Gerados
+│   └── 📁 figures/                   # Figuras para o artigo
+│       └── 🖼️ time_domain_comparison.png  # Gráfico gerado pelo Membro 1
 │
-└── 📁 src/                   # Código Fonte (Scripts MATLAB .m)
-    ├── ⚙️ config.m           # Variáveis globais (ex: fs = 12000)
-    ├── 🎮 main.m             # O "Chefão": Script que roda o projeto todo
+└── 📁 src/                           # Código Fonte MATLAB
+    ├── ⚙️ config.m                   # Configuração de caminhos absolutos
+    ├── 🎮 main.m                     # Script principal (A fazer)
     │
-    ├── 📁 diagnostics/       # [Membro 3] Scripts de análise e métricas
-    │   ├── fault_markers.m
-    │   └── plot_results.m
+    ├── 📁 diagnostics/               # [Membro 3] Análise e Resultados
+    │   ├── fault_markers.m           # (A fazer)
+    │   └── plot_results.m            # (A fazer)
     │
-    ├── 📁 preprocessing/     # [Membro 1] Scripts de limpeza e leitura
-    │   ├── load_data.m
-    │   └── remove_noise.m
+    ├── 📁 preprocessing/             # [Membro 1] Engenharia de Dados (CONCLUÍDO)
+    │   ├── clean_signal.m            # Remoção de DC e Normalização Z-score
+    │   ├── load_data.m               # Leitura inteligente dos .mat
+    │   ├── mainP1.m                  # Funcao principal dessa parte
+    │   ├── run_etl.m                 # Script de processamento em lote
+    │   └── plot_time_comparison.m    # Gerador da figura de tempo
     │
-    └── 📁 spectral/          # [Membro 2] Scripts de FFT e PSD (Welch)
-        ├── calc_fft.m
-        └── calc_welch.m
+    └── 📁 spectral/                  # [Membro 2] Processamento Espectral
+        ├── calc_fft.m                # (A fazer)
+        └── calc_welch.m              # (A fazer)
 ```
