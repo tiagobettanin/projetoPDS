@@ -15,6 +15,7 @@ titulos = {"Baseline", "Inner Light", "Ball Light", "Outer Light", "Inner Severe
 fs = cfg.fs;
 windowLength = 1024;
 window = hamming(windowLength);
+window_rect = rectwin(windowLength);
 noverlap = floor(windowLength/2);
 nfft = windowLength;
 
@@ -74,3 +75,4 @@ for k = 1:3
         end
     end
 end
+
