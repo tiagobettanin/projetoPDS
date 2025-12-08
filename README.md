@@ -57,14 +57,14 @@ Abaixo, o roadmap de desenvolvimento.
 
 ### 👤 Membro 3: Diagnóstico, Métricas & Relatório
 **Responsável por:** Mapeamento de falhas, validação e escrita do artigo IEEE.
-**Arquivo Principal:** `src/diagnostics_metrics.m`
+**Arquivo Principal:** `src/diagnostics/diagnostics_metrics.m`
 
-- [ ] **Marcadores de Frequência de Falha**
-    - [ ] Calcular as frequências teóricas (BPFO, BPFI) para o rolamento do dataset (geralmente rolamento SKF 6205).
-    - [ ] Adicionar linhas verticais (`xline`) nos gráficos de PSD para indicar onde a falha deveria estar.
-- [ ] **Métricas Quantitativas**
-    - [ ] Calcular RMS (Root Mean Square) dos sinais filtrados.
-    - [ ] (Opcional) Implementar classificação simples baseada na energia da banda de falha.
+- [x] **Marcadores de Frequência de Falha**
+    - [x] Calcular as frequências teóricas (BPFO, BPFI) para o rolamento do dataset (geralmente rolamento SKF 6205).
+    - [x] Adicionar linhas verticais (`xline`) nos gráficos de PSD para indicar onde a falha deveria estar.
+- [x] **Métricas Quantitativas**
+    - [x] Calcular RMS (Root Mean Square) dos sinais filtrados.
+    - [x] (Opcional) Implementar classificação simples baseada na energia da banda de falha.
 - [ ] **Produção do Artigo (LaTeX)**
     - [ ] Redigir Metodologia: Explicar por que o Welch é superior à FFT pura para este caso.
     - [ ] Compilar Resultados: Inserir as figuras `.fig` ou `.png` geradas pelo MATLAB.
