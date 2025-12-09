@@ -15,6 +15,7 @@ try
     disp('===================================================');
     disp(' INICIANDO PIPELINE DE DADOS ');
     disp('===================================================');
+    disp([' Rolamento monitorado: ', cfg.bearing.model]);
     disp([' Raiz do Projeto: ', fileparts(fileparts(cfg.raw_dir))]);
 
     %% ETAPA 1: VERIFICAÇÃO DE ARQUIVOS RAW

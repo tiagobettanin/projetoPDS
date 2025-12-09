@@ -1,5 +1,5 @@
 % src/preprocessing/load_data.m
-function [signal, rpm] = load_data(filename)
+function [signal, rpm, full_path] = load_data(filename)
     % LOAD_DATA Carrega um arquivo .mat do CWRU e extrai o sinal DE (Drive End)
     %
     % Entrada:
