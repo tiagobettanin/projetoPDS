@@ -23,7 +23,7 @@ function [signal, rpm, full_path] = load_data(filename)
     
     % 3. Encontrar a variável correta
     % Os arquivos têm variáveis com nomes dinâmicos (X097_DE_time, X105_DE_time...)
-    % Vamos procurar o campo que termina com "_DE_time"
+    % Procurar o campo que termina com "_DE_time"
     field_names = fieldnames(data_struct);
     
     signal = [];

@@ -1,4 +1,5 @@
 function diagnostics_metrics()
+    addpath('..'); 
     cfg = config();
     if ~exist(cfg.results_dir, 'dir'); mkdir(cfg.results_dir); end
     resultsRoot = fileparts(cfg.results_dir);

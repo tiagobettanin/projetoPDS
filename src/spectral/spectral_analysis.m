@@ -1,3 +1,4 @@
+addpath('..');
 cfg = config();
 keys = {
     'baseline',    
@@ -15,6 +16,7 @@ titulos = {"Baseline", "Inner Light", "Ball Light", "Outer Light", "Inner Severe
 fs = cfg.fs;
 windowLength = 1024;
 window = hamming(windowLength);
+window_rect = rectwin(windowLength);
 noverlap = floor(windowLength/2);
 nfft = windowLength;
 
@@ -47,23 +49,31 @@ disp(['FTF: ', num2str(ftf), ' Hz']);
 
 fds = {0, bpfi, bsf, bpfo, bpfi, bsf, bpfo};
 
-for i = 1:length(keys)
-    key = keys{i};                         % e.g., 'baseline'
-    filepath = fullfile(cfg.processed_dir, key);
 
-    data.(key) = load(filepath);           % store in a struct
-    fft_unilateral(data.(key).clean_sig, fs, fds{i}, titulos{i});
-    psd_we(data.(key).clean_sig, window, noverlap, nfft, fs, fds{i}, 'Janela Hamming', titulos{i});
-    psd_comparativo(data.(ket).clean_sig, )
+%% k = 1 -> fft
+%% k = 2 -> psd welch hamming
+%% k = 3 -> psd comparando hamming e retangular
+for k = 1:3
+    
+    for i = 1:length(keys)
+        key = keys{i};                         % e.g., 'baseline'
+        filepath = fullfile(cfg.processed_dir, key);
+    
+        data.(key) = load(filepath);           % store in a struct
+        if k == 1
+
+            fft_unilateral(data.(key).clean_sig, fs, fds{i}, titulos{i});
+        end
+        if k == 2
+            psd_we(data.(key).clean_sig, window, noverlap, nfft, fs, fds{i}, 'Janela Hamming', titulos{i});
+        end
+        if k == 3
+            x = data.(key).clean_sig;  % Extract the clean signal for the current key
+            [pxx_rect, f_rect] = pwelch(x, window_rect, noverlap, nfft, fs);  % Calculate PSD with rectangular window
+            [pxx_ham,  f_ham]  = pwelch(x, hamming(windowLength), noverlap, nfft, fs);
+        
+            psd_comparativo(pxx_rect, f_rect, pxx_ham, f_ham, titulos{i});
+        end
+    end
 end
-
-
-
-
-% PSD com janela Retangular (caixa)
-window_rect = rectwin(windowLength);
-x = data.('baseline').clean_sig;
-[pxx_ham,  f_ham]  = pwelch(x, hamming(windowLength), noverlap, nfft, fs);
-psd_comparativo(pxx_rect, f_rect, pxx_ham, f_ham, 'baseline');
-% Plot
 

@@ -1,5 +1,3 @@
-clear; clc; close all;
-
 % Adiciona caminhos
 addpath('../'); % Para pegar o config.m
 addpath('.');   % Para pegar load_data e clean_signal
@@ -77,14 +75,14 @@ for i = 1:size(scenarios, 1)
         % C. Salva
         save_path = fullfile(save_dir, [fname_out, '.png']);
         saveas(fig, save_path);
-        close(fig); % Fecha a figura para não acumular na memória
+        % close(fig); % Fecha a figura para não acumular na memória
         
-        fprintf('✅ Salvo.\n');
+        fprintf('Salvo: %s\n', save_path);
         
     catch ME
-        fprintf('❌ Erro: %s\n', ME.message);
+        fprintf('Erro: %s\n', ME.message);
     end
 end
 
 disp('------------------------------------------------');
-disp(['🏁 Todos os gráficos foram salvos em: ' save_dir]);
+disp(['Todos os gráficos foram salvos em: ' save_dir]);

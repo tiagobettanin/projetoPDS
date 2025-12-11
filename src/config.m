@@ -10,6 +10,9 @@ function cfg = config()
     
     % Definições Gerais - 12kHz pois é o padrão dos dados CWRU
     cfg.fs = 12000;
+    
+    % Informações do rolamento 
+    cfg.bearing.model = '6205-2RS JEM';
         
     % 3. Define Caminhos Absolutos
     cfg.raw_dir       = fullfile(path_root, 'data', 'raw');
