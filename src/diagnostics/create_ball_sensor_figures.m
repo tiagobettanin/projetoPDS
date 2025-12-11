@@ -9,12 +9,12 @@ function create_ball_sensor_figures(rawFile, label, freqs, fs, cfg, pdfDir, maxF
     [spec, f] = method1_envelope(sig, fs);
 
     figDE = plot_fault_markers(f, spec, freqs, 'BSF', ...
-        sprintf('%s – Drive End', label), 6000);
+        sprintf('%s', label), maxFreq);
     saveas(figDE, fullfile(cfg.results_dir, sprintf('%s_de.png', rawFile(1:end-4))));
     exportgraphics(figDE, fullfile(pdfDir, sprintf('%s_de.pdf', rawFile(1:end-4))), 'ContentType', 'vector');
 
     figDEHigh = plot_fault_markers(f, spec, freqs, 'BSF', ...
-        sprintf('%s – Drive End (2500-4500 Hz)', label), 4500, ...
+        sprintf('%s', label), 4500, ...
         'MinFreq', 2500, 'HarmonicStart', 18, 'NumHarmonics', 10, 'SidebandCount', 0);
     saveas(figDEHigh, fullfile(cfg.results_dir, sprintf('%s_de_zoom.png', rawFile(1:end-4))));
     exportgraphics(figDEHigh, fullfile(pdfDir, sprintf('%s_de_zoom.pdf', rawFile(1:end-4))), 'ContentType', 'vector');

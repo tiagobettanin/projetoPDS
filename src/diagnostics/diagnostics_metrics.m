@@ -12,13 +12,6 @@ function diagnostics_metrics()
     bandHalfWidth = 5;
     rpmFallback = 1797;
 
-    baselinePath = fullfile(cfg.processed_dir, 'baseline.mat');
-    if ~isfile(baselinePath); error('Arquivo baseline processado não encontrado: %s', baselinePath); end
-    baselineSample = load(baselinePath);
-    baselineSig = baselineSample.clean_sig(:);
-    baselineFs = read_field(baselineSample, 'fs', cfg.fs);
-    [baselinePSD, baselineFreq] = compute_psd(baselineSig, baselineFs);
-
     rpmVals = zeros(numel(keys),1);
     rmsVals = zeros(numel(keys),1);
     crestVals = zeros(numel(keys),1);
@@ -42,11 +35,6 @@ function diagnostics_metrics()
         targetFreq = freqs.(targetName);
 
         [spec1, f1] = method1_envelope(signal, fs);
-        [samplePSD, sampleFreq] = compute_psd(signal, fs);
-
-        figPSD = plot_psd_comparison(baselineFreq, baselinePSD, sampleFreq, samplePSD, label, maxPlotFreq);
-        saveas(figPSD, fullfile(cfg.results_dir, sprintf('%s_psd_compare.png', key)));
-        exportgraphics(figPSD, fullfile(pdfDir, sprintf('%s_psd_compare.pdf', key)), 'ContentType', 'vector');
 
         figMarkers = plot_fault_markers(f1, spec1, freqs, targetName, label, maxPlotFreq);
         saveas(figMarkers, fullfile(cfg.results_dir, sprintf('%s_markers_%s.png', key, lower(targetName))));
@@ -66,6 +54,6 @@ function diagnostics_metrics()
     metricsTable = table(string(labels)', rpmVals, rmsVals, crestVals, kurtVals, bandEnergyVals, ...
         'VariableNames', {'Condition','RPM','RMS','CrestFactor','Kurtosis','EnvelopeBandEnergy'});
     disp(metricsTable);
-    fprintf('Diagnostic figures stored in %s\n', cfg.results_dir);
-    fprintf('Diagnostic PDF figures stored in %s\n', pdfDir);
+    fprintf('Figuras de diagnóstico salvas em %s\n', cfg.results_dir);
+    fprintf('Figuras de diagnóstico em PDF salvas em %s\n', pdfDir);
 end

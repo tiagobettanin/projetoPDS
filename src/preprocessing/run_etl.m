@@ -1,6 +1,4 @@
 % ETL: Extract (Raw), Transform (Clean), Load (Save Processed)
-
-clear; clc;
 addpath('..'); % Acesso ao config.m
 
 cfg = config();

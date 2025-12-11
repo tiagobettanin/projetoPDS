@@ -3,7 +3,7 @@
 % 2. Executa o pipeline ETL (Limpeza e Salvamento).
 % 3. Gera gráficos de validação visual.
 
-clear; clc; close all;
+
 format compact;
 
 % 1. Configuração de Caminhos
