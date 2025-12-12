@@ -6,9 +6,13 @@ plot(f, 10*log10(pxx));
 xlabel('Frequência (Hz)');
 ylabel('PSD (dB/Hz)');
 titulo = ['Método de Welch' tipo_janela, texto];
-    if fd ~= 0
-        xline(fd, '--r', 'Frequencia de defeito'); 
-    end
+    % if fd ~= 0
+    %     for k = 1:100
+    % 
+    %         xline(fd, '--r', 'Frequencia de defeito'); % Linha tracejada vermelha com rótulo
+    %         % xline(fd*k, '--r');
+    %     end
+    % end
 title(titulo);
 grid on;
 
